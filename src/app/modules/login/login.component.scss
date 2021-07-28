@@ -1,0 +1,170 @@
+.container{
+  height: 100%;
+  align-content: center;
+}
+
+.card{
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: #FFC312;
+}
+
+.social_icon span:hover{
+  color: white;
+  cursor: pointer;
+}
+
+.card-header h3{
+  color: white;
+}
+
+.social_icon{
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+
+.input-group-prepend span{
+  width: 50px;
+  background-color: #FFC312;
+  color: black;
+  border:0 !important;
+}
+
+input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember{
+  color: white;
+}
+
+.remember input
+{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn{
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+}
+
+.login_btn:hover{
+  color: black;
+  background-color: white;
+}
+
+.links{
+  color: white;
+}
+
+.links a{
+  margin-left: 4px;
+}
+
+.button {
+  float: left;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+}
+
+.button:hover {
+  width: 200px;
+}
+
+.button:nth-child(1):hover .icon {
+  //background: #e1306c;
+  background: #4267b2;
+}
+
+.button:nth-child(2):hover .icon {
+  //background: #4267b2;
+  background: #333;
+}
+
+.button:nth-child(3):hover .icon {
+  background: #ff0000;
+}
+
+.button:nth-child(4):hover .icon {
+  background: #0e76a8;
+}
+
+.button:nth-child(5):hover .icon {
+  background: #ff0000;
+}
+
+.button:nth-child(6):hover .icon {
+  background: #333;
+}
+
+.button:nth-child(1) span {
+  color: #4267b2;
+  //color: #e1306c;
+}
+
+.button:nth-child(2) span {
+  //color: #4267b2;
+  color: #333;
+}
+
+.button:nth-child(3) span {
+  color: #ff0000;
+}
+
+.button:nth-child(4) span {
+  color: #0e76a8;
+}
+
+.button:nth-child(5) span {
+  color: #ff0000;
+}
+
+.button:nth-child(6) span {
+  color: #333;
+}
+
+.button .icon {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border-radius: 50px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover i {
+  color: #fff;
+}
