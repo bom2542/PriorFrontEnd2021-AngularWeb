@@ -8,7 +8,7 @@ li {
 }
 
 p {
-  margin: .3em;
+  margin: .5em;
 }
 
 a:link,
@@ -16,6 +16,10 @@ a:visited {
   text-decoration: underline;
   color: inherit;
 }
+
+//#link_signup{
+//  argin-right : 20em;
+//}
 
 a:hover,
 a:active,
@@ -27,9 +31,14 @@ ul {
   list-style: none;
 }
 
-main {
+main, .topic {
   display: flex;
-  min-height: 60vh;
+}
+
+.topic {
+  margin-top: 80px;
+  margin-bottom: 20px;
+  //min-height: 60vh;
 }
 
 .list {
@@ -38,15 +47,15 @@ main {
 }
 
 .option {
-  width: 250px;
+  width: 600px;
   padding: 0 3em;
-  height: 4em;
-  line-height: 4em;
+  height: 6em;
+  line-height: 6em;
   z-index: 10;
 }
 
 .option:not(:last-of-type) {
-  border-bottom: 1px solid #eed;
+  border-bottom: 0.5px solid #eed;
 }
 
 .option .label {
@@ -59,7 +68,7 @@ main {
 }
 
 .icon {
-  height: 2em;
+  height: 3.5em;
   width: auto;
   margin-right: 1em;
 }
@@ -69,11 +78,12 @@ main {
   left: 0;
   top: 0;
   right: 0;
-  height: 4em;
-  background-color: #4effbb;
+  height: 6em;
+  background-color: #95D47A;
   z-index: -1;
   opacity: 0;
-  transition: all 150ms ease-out;
+  transition: all 200ms ease-out;
+  border-radius: 10px;
 }
 
 .list:hover .slider {
@@ -86,16 +96,4 @@ main {
 
 .option:nth-child(3):hover ~ .slider {
   transform: translateY(200%);
-}
-
-.option:nth-child(4):hover ~ .slider {
-  transform: translateY(300%);
-}
-
-.option:nth-child(5):hover ~ .slider {
-  transform: translateY(400%);
-}
-
-.option:nth-child(6):hover ~ .slider {
-  transform: translateY(500%);
 }
