@@ -6,11 +6,13 @@ import { LoginComponent } from './login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {SharedModule} from "../../shared/shared.module";
+import { TableComponent } from './component/table/table.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

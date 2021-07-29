@@ -8,6 +8,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
   form : FormGroup;
+  mockData : any[] = [
+    {position: 1, username: 'test1234', password: '1234'}
+  ]
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
