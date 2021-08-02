@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { ApiService } from "../../core/service/api.service";
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,33 @@ export class LoginComponent implements OnInit {
   form : FormGroup;
   mockData : any[] = [
     {position: 1, username: 'test1234', password: '1234'}
-  ]
-  constructor(private formBuilder: FormBuilder) {}
+  ];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
+    ) {}
 
   ngOnInit(): void {
     this.setFormGroup();
+    this.getUserAll();
+    this.getUserById();
+  }
+
+  getUserAll(){
+    this.apiService.getUserAll().subscribe((res) => {
+      console.log(res)
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
+  getUserById(){
+    this.apiService.getUserById(1).subscribe((res) => {
+      console.log(res)
+    }, (error) => {
+      console.log(error);
+    })
   }
 
   setFormGroup() {

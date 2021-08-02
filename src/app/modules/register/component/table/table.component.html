@@ -26,24 +26,25 @@
 <!--  </table>-->
 <!--</div>-->
 
-<div class="container-fluid kn_font">
+<div class="container kn_font text-center">
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Firstname</th>
-        <th scope="col">Surname</th>
-        <th scope="col">Email</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">Name</th>
         <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let element of data">
-        <td>{{element.firstname}}</td>
-        <td>{{element.surname}}</td>
-        <td>{{element.email}}</td>
-        <td>{{element.mobile}}</td>
+      <tr *ngFor="let v of data">
+        <td><img src="{{v.avatar}}" alt=""></td>
+        <td>{{v.name}}</td>
+        <td>{{v.mobile}}</td>
+        <td>{{v.email}}</td>
+        <td><button mat-flat-button color="accent" (click) = "onEdit(v.name, v.avatar, v.mobile, v.email)"><i class="fas fa-user-edit"></i></button></td>
       </tr>
     </tbody>
   </table>
 </div>
-

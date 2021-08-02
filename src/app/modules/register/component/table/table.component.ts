@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
+import {ApiService} from "../../../../core/service/api.service";
 
 @Component({
   selector: 'app-table',
@@ -8,12 +9,20 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 export class TableComponent implements OnInit {
   @Input() data : any[] = [];
-  dataSource = new MatTableDataSource<[]>();
-  displayedColumns: string[] = ['firstname', 'surname', 'email', 'mobile'];
-  constructor() { }
+  @Output() name = new EventEmitter<string>()
+  @Output() avatar = new EventEmitter<string>()
+  @Output() mobile = new EventEmitter<string>()
+  @Output() email = new EventEmitter<string>()
 
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.data)
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onEdit(name : string, avatar : string, mobile : string, email : string) {
+    this.name.emit(name)
+    this.avatar.emit(avatar)
+    this.mobile.emit(mobile)
+    this.email.emit(mobile)
   }
 
 }

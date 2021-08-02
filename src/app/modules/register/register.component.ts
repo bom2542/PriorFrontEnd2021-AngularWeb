@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {MatTableDataSource} from "@angular/material/table";
+import {ApiService} from "../../core/service/api.service";
 
 @Component({
   selector: 'app-register',
@@ -8,40 +10,53 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class RegisterComponent implements OnInit {
   form : FormGroup;
-  mockData : any[] = [
-    { firstname: 'Pharadorn', surname: 'Boonruam', email: 'bom@bom.com', mobile: '094-9015032' },
-    { firstname: 'Prayuth', surname: 'Wongsuwan', email: 'yuth@bom.com', mobile: '1988' }
-  ]
-  constructor(private formBuilder: FormBuilder) { }
+  UserList : any[] = [];
+  GetUserList : any[] = [];
+  Name : string
+  Avatar : string
+  Mobile : string
+  Email : string
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
     this.setFormGroup();
+    this.getUserAll();
+  }
+
+  getUserAll(){
+    this.apiService.getUserAll().subscribe((res) => {
+      this.UserList = res
+    }, (error) => {
+      console.log(error);
+    })
   }
 
   setFormGroup() {
     this.form = this.formBuilder.group({
-      firstname: [null, Validators.required],
-      surname: [null, Validators.required],
+      name: [null, Validators.required],
       email: [null, Validators.required],
       mobile: [null, Validators.required],
     });
   }
 
   onSubmit() {
-    if(this.form.invalid){
-      return;
-    }else{
-      this.mockData.push({ firstname: this.firstname.value, surname: this.surname.value, email: this.email.value, mobile: this.mobile.value });
-      console.log(this.mockData)
+    if (confirm('Are you sure you want to save ?')) {
+      if (this.form.invalid) {
+        return;
+      } else {
+        this.UserList.push({ name: this.name.value, email: this.email.value, mobile: this.mobile.value, avatar : this.Avatar });
+      }
+    } else {
+      alert('Thing was not saved !!!');
     }
   }
 
-  get firstname(): FormControl {
-    return this.form.get("firstname") as FormControl;
-  }
-
-  get surname(): FormControl {
-    return this.form.get("surname") as FormControl;
+  get name(): FormControl {
+    return this.form.get("name") as FormControl;
   }
 
   get email(): FormControl {
@@ -50,6 +65,22 @@ export class RegisterComponent implements OnInit {
 
   get mobile(): FormControl {
     return this.form.get("mobile") as FormControl;
+  }
+
+  GetName($event : string){
+    this.Name = $event
+  }
+
+  GetAvatar($event : string){
+    this.Avatar = $event
+  }
+
+  GetMobile($event : string){
+    this.Mobile = $event
+  }
+
+  GetEmail($event : string){
+    this.Email = $event
   }
 
 }

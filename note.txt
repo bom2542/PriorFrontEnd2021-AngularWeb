@@ -1,12 +1,19 @@
+#Start project localhost:4200
 -> yarn
 -> yarn --version, ng --version
 -> yarn start, ng serve
+
+#Create module
 -> ng g m modules/#name --routing=true
 -> ng g c modules/#name
+
+#Create component
 -> ng g c modules/#name/component/#name
 
-#######################################################
+#Create service api
+-> ng g s core/service/api
 
+#How to build first app
      1. /src/app/app-routing.module.ts (Make PreLoading)
        |_ const routes: Routes = [
             {

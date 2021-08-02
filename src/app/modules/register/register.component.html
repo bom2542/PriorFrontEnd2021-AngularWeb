@@ -1,34 +1,60 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5 example-form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="example-form">
 <div class="container">
   <mat-grid-list cols="1" rowHeight="400px">
     <mat-grid-tile>
       <div class="example-container">
+        <mat-form-field appearance="fill" class="width-100">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" value="{{Name}}">
+        </mat-form-field>
+        <br>
         <mat-form-field appearance="fill" class="width-50">
-          <mat-label>Firstname</mat-label>
-          <input matInput formControlName="firstname">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Ex. prior@gmail.com" formControlName="email" value="{{Email}}">
         </mat-form-field>
         <mat-form-field appearance="fill" class="width-50 ml-2">
-          <mat-label>Surname</mat-label>
-          <input matInput formControlName="surname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill" class="width-100">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Ex. prior@gmail.com" formControlName="email">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill" class="width-100">
           <mat-label>Mobile</mat-label>
-          <input matInput formControlName="mobile">
+          <input matInput formControlName="mobile" value="{{Mobile}}">
         </mat-form-field>
         <br>
-        <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i>
-          Signup
-        </button>
+        <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Save</button>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 </form>
 
-<app-table [data]="mockData"></app-table>
+<!-- <div *ngFor="let v of UserData">
+        <p>{{v.name}}</p>
+</div> -->
+<!--<input type="text" value="{{Id}}">-->
+<!--<div>{{Id}}</div>-->
+<!-- <div *ngFor="let v of UserData">
+  <p><img src="{{v.avatar}}" alt=""></p>
+  <p>{{v.name}}</p>
+</div> -->
+
+<!-- <p>{{UserData('name')}}</p> -->
+
+<!-- <div class="container kn_font text-center">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Avatar</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of GetUser">
+        <td><img src="{{v.avatar}}" alt=""></td>
+        <td>{{v.name}}</td>
+        <td>{{v.mobile}}</td>
+        <td>{{v.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<app-table (name)="GetName($event)" (avatar)="GetAvatar($event)" (mobile)="GetMobile($event)" (email)="GetEmail($event)" [data]="UserList"></app-table>
