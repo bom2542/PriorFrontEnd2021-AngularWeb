@@ -40,9 +40,5 @@
 <!--  </div>-->
 <!--</nav>-->
 
-<h3 (click)="showImage = !showImage">My wonderful test</h3>
-<ng-container *ngIf="showImage">
-  <image-map [src]="image" [coordinates]="coordinates" (onClick)="getClick($event)" canEdit="true"></image-map>
-</ng-container>
 
 <router-outlet></router-outlet>

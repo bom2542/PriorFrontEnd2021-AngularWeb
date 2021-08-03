@@ -32,7 +32,7 @@ export class ImageMapComponent implements OnInit {
     };
   }
 
-  onAreaClick(coordinate) {
+  onAreaClick(coordinate : any) {
     this.onClick.emit(coordinate);
   }
 

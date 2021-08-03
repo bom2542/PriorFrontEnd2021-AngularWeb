@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageMapComponent } from './image-map.component';
+import { PocComponent } from './poc.component';
 
-describe('ImageMapComponent', () => {
-  let component: ImageMapComponent;
-  let fixture: ComponentFixture<ImageMapComponent>;
+describe('PocComponent', () => {
+  let component: PocComponent;
+  let fixture: ComponentFixture<PocComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImageMapComponent ]
+      declarations: [ PocComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ImageMapComponent);
+    fixture = TestBed.createComponent(PocComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
