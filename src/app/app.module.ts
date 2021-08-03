@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
 import { MenuComponent } from './modules/menu/menu.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ImageMapComponent } from './image-map/image-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    ImageMapComponent
   ],
   imports: [
     BrowserModule,

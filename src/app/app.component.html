@@ -1,43 +1,48 @@
-<nav class="kn_font navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Prior Game</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!--<nav class="kn_font navbar navbar-expand-lg navbar-light bg-light">-->
+<!--  <a class="navbar-brand" href="/">Prior Game</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-<!--      <li class="nav-item active">-->
-<!--        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/login">Login</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/menu">Menu</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" href="/login">Menu</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item dropdown">-->
-<!--        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--          Dropdown-->
-<!--        </a>-->
-<!--        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--          <a class="dropdown-item" href="/login">Action</a>-->
-<!--          <a class="dropdown-item" href="#">Another action</a>-->
-<!--          <div class="dropdown-divider"></div>-->
-<!--          <a class="dropdown-item" href="#">Something else here</a>-->
-<!--        </div>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link disabled" href="#">Disabled</a>-->
-<!--      </li>-->
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="/login">
-<!--      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><i class="fas fa-sign-in-alt"></i> Login</button>
-    </form>
-  </div>
-</nav>
+<!--  <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--&lt;!&ndash;      <li class="nav-item active">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="/login">Login</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="/menu">Menu</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="/login">Menu</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&ndash;&gt;-->
+<!--&lt;!&ndash;          Dropdown&ndash;&gt;-->
+<!--&lt;!&ndash;        </a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="dropdown-menu" aria-labelledby="navbarDropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="dropdown-item" href="/login">Action</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="dropdown-item" href="#">Another action</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="dropdown-divider"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="dropdown-item" href="#">Something else here</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link disabled" href="#">Disabled</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--    </ul>-->
+<!--    <form class="form-inline my-2 my-lg-0" action="/login">-->
+<!--&lt;!&ndash;      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">&ndash;&gt;-->
+<!--      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><i class="fas fa-sign-in-alt"></i> Login</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<h3 (click)="showImage = !showImage">My wonderful test</h3>
+<ng-container *ngIf="showImage">
+  <image-map [src]="image" [coordinates]="coordinates" (onClick)="getClick($event)" canEdit="true"></image-map>
+</ng-container>
 
 <router-outlet></router-outlet>
