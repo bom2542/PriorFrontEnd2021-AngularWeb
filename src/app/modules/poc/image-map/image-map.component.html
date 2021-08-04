@@ -1,8 +1,18 @@
-<div id="image-container">
-  <img [src]="src">
-  <div class="coordinates-container">
-    <div class="area" [ngStyle]="getCoordinateStyle(coordinate)" [title]="coordinate.name"
-         *ngFor="let coordinate of coordinates" (click)="onAreaClick(coordinate)" (contextmenu)="onAreaEdit(coordinate)">
+<div id="box-size" class="mt-1">
+  <div style="overflow: hidden;">
+    <div id="image-container scene" #scene>
+      <img [src]="src" width="1024px" height="764px">
+      <div class="coordinates-container">
+        <div class="area" [ngStyle]="getCoordinateStyle(coordinate)" [title]="coordinate.name"
+             *ngFor="let coordinate of coordinates" (click)="onAreaClick(coordinate)" (contextmenu)="onAreaEdit(coordinate)">
+          {{coordinate.name}}
+          <img src="../../../../assets/images/success.svg" alt="" width="35px" class="box bounce-2">
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<button class="transparent-button" (click)="zoomToggle(false)">-</button>
+<span>{{ currentZoomLevel * 100 }}%</span>
+<button class="transparent-button" (click)="zoomToggle(true)">+</button>

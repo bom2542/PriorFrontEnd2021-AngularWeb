@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {SharedModule} from "../../shared/shared.module";
 import { TableComponent } from './component/table/table.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TableComponent } from './component/table/table.component';
     LoginRoutingModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class LoginModule { }

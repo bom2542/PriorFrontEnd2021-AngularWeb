@@ -4,18 +4,46 @@
     bottom: 0;
     right: 0;
     left: 0;
-  
+
     .area {
       position: absolute;
       cursor: pointer;
       transition: all 0.1s;
-      &:hover {
-        border: 2px solid lightgray;
-        box-shadow: 0 0px 5px darkgray;
-      }
+      //border: 2px solid lightgray;
+      //box-shadow: 0 0px 5px darkgray;
+      //&:hover {
+      //  border: 2px solid lightgray;
+      //  //box-shadow: 0 0px 0px darkgray;
+      //}
     }
   }
-  
+
   #image-container {
     position: relative;
+  }
+
+  #box-size {
+    width: 1024px;
+    height: 768px;
+    border: 2px solid gray;
+    margin: auto;
+  }
+
+  .box {
+    align-self: flex-end;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+  }
+
+  .bounce-2 {
+    animation-name: bounce-2;
+    animation-timing-function: ease;
+  }
+
+  @keyframes bounce-2 {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
   }

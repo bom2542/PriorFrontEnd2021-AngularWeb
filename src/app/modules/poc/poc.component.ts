@@ -7,23 +7,22 @@ import {ImageMapCoordinate} from './image-map/image-map.component';
   styleUrls: ['./poc.component.scss'],
 })
 export class PocComponent implements OnInit {
-  image: string =
-    'https://image.shutterstock.com/image-vector/solar-system-sun-planets-vector-260nw-751091653.jpg';
+  image: string = '../../../assets/images/map.png';
 
   coordinates: ImageMapCoordinate[] = [
     {
-      name: 'The sun',
-      x: 0,
-      y: 200,
-      width: 95,
-      height: 100,
+      name: 'success',
+      x: 640,
+      y: 515,
+      width: 10,
+      height: 10,
     },
     {
-      name: 'The sun',
+      name: 'edit',
       x: 0,
       y: 100,
-      width: 95,
-      height: 100,
+      width: 10,
+      height: 10,
     },
   ];
 
