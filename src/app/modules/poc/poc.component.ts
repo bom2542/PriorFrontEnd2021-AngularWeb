@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ImageMapCoordinate} from './image-map/image-map.component';
 
 @Component({
@@ -7,28 +7,33 @@ import {ImageMapCoordinate} from './image-map/image-map.component';
   styleUrls: ['./poc.component.scss'],
 })
 export class PocComponent implements OnInit {
+
+  scrHeight: number = 0;
+  scrWidth: number = 0;
+
   image: string = '../../../assets/images/map.png';
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+  }
 
   coordinates: ImageMapCoordinate[] = [
     {
       name: 'success',
-      x: 640,
-      y: 515,
-      width: 10,
-      height: 10,
-    },
-    {
-      name: 'edit',
-      x: 0,
-      y: 100,
-      width: 10,
-      height: 10,
+      x: 10,
+      y: 10,
+      width: 0,
+      height: 0,
     },
   ];
 
   showImage: boolean;
 
-  constructor() {}
+  constructor() {
+    this.getScreenSize();
+  }
 
   ngOnInit(): void {}
 

@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import Panzoom from '@panzoom/panzoom';
+import { HostListener } from "@angular/core";
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-image-map',
   templateUrl: './image-map.component.html',
   styleUrls: ['./image-map.component.scss']
 })
-export class ImageMapComponent implements AfterViewInit {
+export class ImageMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('scene', { static: false }) scene: ElementRef;
   panZoomController;
@@ -26,9 +28,45 @@ export class ImageMapComponent implements AfterViewInit {
   @Output('onClick')
   onClick: EventEmitter<ImageMapCoordinate> = new EventEmitter();
 
-  constructor() { }
+  constructor(private primengConfig: PrimeNGConfig) {
+  }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
+
+  displayModal: boolean;
+
+  displayBasic: boolean;
+
+  displayBasic2: boolean;
+
+  displayMaximizable: boolean;
+
+  displayPosition: boolean;
+
+  position: string;
+
+  showModalDialog() {
+    this.displayModal = true;
+  }
+
+  showBasicDialog() {
+    this.displayBasic = true;
+  }
+
+  showBasicDialog2() {
+    this.displayBasic2 = true;
+  }
+
+  showMaximizableDialog() {
+    this.displayMaximizable = true;
+  }
+
+  showPositionDialog(position: string) {
+    this.position = position;
+    this.displayPosition = true;
+  }
 
   getCoordinateStyle(coordinate: ImageMapCoordinate): object {
     return {
@@ -111,6 +149,9 @@ export class ImageMapComponent implements AfterViewInit {
     this.currentZoomLevel = this.zoomLevels[4];
     // Panzoom(document.querySelector('#scene'));
     this.panZoomController = Panzoom(this.scene.nativeElement);
+  }
+
+  ngOnDestroy() {
   }
 
 }

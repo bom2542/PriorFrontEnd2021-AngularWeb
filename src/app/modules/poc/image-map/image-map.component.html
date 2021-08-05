@@ -1,18 +1,107 @@
-<div id="box-size" class="mt-1">
-  <div style="overflow: hidden;">
-    <div id="image-container scene" #scene>
-      <img [src]="src" width="1024px" height="764px">
-      <div class="coordinates-container">
-        <div class="area" [ngStyle]="getCoordinateStyle(coordinate)" [title]="coordinate.name"
-             *ngFor="let coordinate of coordinates" (click)="onAreaClick(coordinate)" (contextmenu)="onAreaEdit(coordinate)">
-          {{coordinate.name}}
-          <img src="../../../../assets/images/success.svg" alt="" width="35px" class="box bounce-2">
-        </div>
+<!-- Mapping front -->
+<div id="underlay">
+    <img [src]="src" class="img-fluid">
+    <div class="markers">
+      <div class="marker" style="left:50%; top:40%;" pTooltip="Problem of topic" (click)="showModalDialog()" >
+        <img src="../../../../assets/images/success.svg" alt="" class="box">
+      </div>
+      <div class="marker" style="left:1%; top:88%;" pTooltip="Problem of topic" (click)="showModalDialog()" >
+        <img src="../../../../assets/images/success.svg" alt="" class="box">
+      </div>
+      <div class="marker" style="left:61%; top:75%;" pTooltip="Problem of topic" (click)="showModalDialog()" >
+        <img src="../../../../assets/images/edit.svg" alt="" class="box bounce-2">
+      </div>
+      <div class="marker" style="left:20%; top:80%;" pTooltip="Problem of topic" (click)="showModalDialog()" >
+        <img src="../../../../assets/images/ques.svg" alt="" class="box bounce-2">
       </div>
     </div>
-  </div>
 </div>
 
-<button class="transparent-button" (click)="zoomToggle(false)">-</button>
-<span>{{ currentZoomLevel * 100 }}%</span>
-<button class="transparent-button" (click)="zoomToggle(true)">+</button>
+<!--[(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"-->
+<!--[draggable]="false" [resizable]="false"-->
+<!-- Dialog front -->
+<p-dialog header="Golang Question : 5" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+          [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+  <p class="p-m-0">
+    Golang Question : 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;1. sed doeiusmod tempor incididunt <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;2. ut labore et dolore magna aliqua. <br>
+  </p>
+  <div class="mt-3">
+    <b>Ut enim ad minim veniam, quis nostrud exercitation ullamco ?</b>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <i class="pi pi-github" style="font-size: 1.5rem"></i>
+      <b>&nbsp;GitHub attach : </b>
+      <a href="github.com/bom2542">github.com/bom2542</a>
+    </div>
+    <div class="col-md-6 mt-2">
+      <i class="pi pi-file-pdf" style="font-size: 1.5rem"></i><b>&nbsp;File attach : </b>
+      <a href="github.com/bom2542">github.com/bom2542</a>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <i class="pi pi-github" style="font-size: 1.5rem"></i>
+      <b>&nbsp;GitHub send : </b>
+    </div>
+    <div class="col-md-6 mt-2">
+      <i class="pi pi-file-pdf" style="font-size: 1.5rem"></i><b>&nbsp;File send : </b>
+    </div>
+  </div>
+  <div class="row mt-1 input-group">
+    <div class="col-md-6">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="col-md-6 mt-2 custom-file">
+<!--      <input type="file" class="custom-file-input" id="validatedCustomFile" required>-->
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-send" (click)="displayModal=false" label="Send" class="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
+<!-- Comment -->
+<!--    <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>-->
+
+<!--    <div class="area" class="marker" [ngStyle]="getCoordinateStyle(coordinate)" [title]="coordinate.name"-->
+<!--         *ngFor="let coordinate of coordinates" (click)="onAreaClick(coordinate)" (contextmenu)="onAreaEdit(coordinate)">-->
+<!--      <img src="../../../../assets/images/success.svg" alt="" class="box bounce-2 img-fluid">-->
+<!--    </div>-->
+
+<!--      <div *ngFor="let coordinate of coordinates">-->
+<!--        {{coordinate.name}}-->
+<!--      </div>-->
+<!--    <div id="marker2" class="marker" style="left:60%; top:42%;"><i class="marker-content fa fa-arrow-circle-down" style="color:white"></i></div>-->
+
+<!--<h5>Modal</h5>-->
+<!--<p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Show"></p-button>-->
+
+<!--<br>-->
+<!--  <div style="overflow: hidden; border: 3px solid yellowgreen">-->
+<!--    <div id="image-container scene" #scene>-->
+<!--&lt;!&ndash;    <div id="image-container">&ndash;&gt;-->
+<!--      <img [src]="src" class="img-fluid">-->
+<!--      <div class="coordinates-container">-->
+<!--        <div class="area" [ngStyle]="getCoordinateStyle(coordinate)" [title]="coordinate.name"-->
+<!--             *ngFor="let coordinate of coordinates" (click)="onAreaClick(coordinate)" (contextmenu)="onAreaEdit(coordinate)">-->
+<!--          <img src="../../../../assets/images/success.svg" alt="" class="box bounce-2 img-fluid">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--<div id="underlay">-->
+<!--  <img style="height:auto; width:auto; max-width:100%;" src="../../../../assets/images/map.png">-->
+<!--  <div id="markers">-->
+<!--    <div id="marker1" style="left:36%; top:56%; position:absolute; font-size: 60px">"1"</div>-->
+<!--    <div id="marker2" style="left:45%; top:76%; position:absolute;">"2"</div>-->
+<!--    <div id="marker3" style="left:24%; top:65%; position:absolute;">"3"</div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<button class="transparent-button" (click)="zoomToggle(false)">-</button>-->
+<!--<span>{{ currentZoomLevel * 100 }}%</span>-->
+<!--<button class="transparent-button" (click)="zoomToggle(true)">+</button>-->
