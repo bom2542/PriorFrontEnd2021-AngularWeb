@@ -3,9 +3,9 @@
     <div class="markers" *ngFor="let map of this.psg; let num = index">
       <div class="marker" style="left:{{map.xAxis}}%; top:{{map.yAxis}}%;">
         <!-- Topic status of test -->
-        <img src="../../../../assets/images/success.svg" alt="" class="box" pTooltip="{{map.topicName}}" (click)="showModalDialog()">
-<!--        <img *ngIf="map.statusTopic == 2;" src="../../../../assets/images/edit.svg" alt="" class="box bounce-2" pTooltip="{{map.topicName}}" (click)="showModalDialog()">-->
-<!--        <img *ngIf="map.statusTopic == 3;" src="../../../../assets/images/ques.svg" alt="" class="box bounce-2" pTooltip="{{map.topicName}}" (click)="showModalDialog()">-->
+        <img *ngIf="map.statusTopic == 1;" src="../../../../assets/images/success.svg" alt="" class="box" pTooltip="{{map.topicName}}" (click)="showModalDialog()" style="cursor: pointer;">
+        <img *ngIf="map.statusTopic == 2;" src="../../../../assets/images/edit.svg" alt="" class="box bounce-2" pTooltip="{{map.topicName}}" (click)="showModalDialog()" style="cursor: pointer;">
+        <img *ngIf="map.statusTopic == 3;" src="../../../../assets/images/ques.svg" alt="" class="box bounce-2" pTooltip="{{map.topicName}}" (click)="showModalDialog()" style="cursor: pointer;">
       </div>
       <p-dialog header="Golang Question : {{num}}" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
                 [baseZIndex]="10000" [draggable]="false" [resizable]="false">
